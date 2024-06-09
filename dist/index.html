@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="userApp">
+<head>
+    <title>AngularJS App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/controllers/user.controller.js"></script>
+    <script src="app/controllers/login.controller.js"></script>
+    <script src="app/services/user.service.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .modal-header .btn-close {
+            background: transparent;
+            border: none;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .close-alert {
+            position: absolute;
+            right: -10px;
+            top: -15px;
+            border-radius: 15px;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+    <base href="/">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">User Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="container" ng-view></div>
+</body>
+</html>
