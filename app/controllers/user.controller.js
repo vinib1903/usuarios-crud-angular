@@ -10,10 +10,10 @@ angular.module('userApp').controller('UserController', function($scope, UserServ
             if (response && response.data) {
                 $scope.users = response.data;
             } else {
-                console.error('Error: Invalid response from server');
+                console.error('Erro: resposta inválida do servidor.');
             }
         }, function(error) {
-            console.error('Error loading users:', error);
+            console.error('Erro ao carregar usuários:', error);
         });
     };
 
@@ -28,10 +28,11 @@ angular.module('userApp').controller('UserController', function($scope, UserServ
     $scope.updateUser = function() {
         UserService.updateUser($scope.editingUser).then(function(response) {
             $scope.loadUsers();
-            $scope.editingUser = null;
-            $scope.successMessage = response.data ? response.data.message : 'User updated successfully';
+            $scope.editingUser = false;
+            //null
+            $scope.successMessage = response.data ? response.data.message : 'Usuário atualizado com sucesso!';
         }, function(error) {
-            console.error('Error updating user:', error);
+            console.error('Erro ao atualizar usuário:', error);
         });
     };
 
@@ -40,7 +41,7 @@ angular.module('userApp').controller('UserController', function($scope, UserServ
             UserService.deleteUser(id).then(function(response) {
                 $scope.loadUsers();
             }, function(error) {
-                console.error('Error deleting user:', error);
+                console.error('Erro ao apagar usuário:', error);
             });
         }
     };
@@ -58,9 +59,9 @@ angular.module('userApp').controller('UserController', function($scope, UserServ
         UserService.createUser($scope.newUser).then(function(response) {
             $scope.loadUsers();
             $scope.addingUser = false;
-            $scope.successMessage = response.data ? response.data.message : 'User added successfully';
+            $scope.successMessage = response.data ? response.data.message : 'Usuário adicionado com sucesso!';
         }, function(error) {
-            console.error('Error adding user:', error);
+            console.error('Erro ao adicionar usuário:', error);
         });
     };
 

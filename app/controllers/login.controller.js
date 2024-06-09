@@ -7,7 +7,7 @@ angular.module('userApp').controller('LoginController', function($scope, $http, 
             sessionStorage.setItem('authToken', response.data.Token);
             $location.path('/users');
         }, function(error) {
-            $scope.errorMessage = error.data.Message || "Login failed";
+            $scope.errorMessage = error.data.Message || "O login falhou, verifique suas credenciais.";
         });
     };
 });
